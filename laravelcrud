@@ -47,7 +47,7 @@
         $users = DB::table('users')->limit(2)->get();
         echo 'Limit : '.$users . '<br>';
     
-    /*Tüm Tabloyu BOŞALTIR 
+    /*Tüm Tabloyu BOŞALTIR# 
         $users = DB::table('users')->truncate()->get();
     */
 
