@@ -1,0 +1,23 @@
+php arsitan make:seeder InfoSeeder // database/seeders altına ilgili seeder dosyası oluşur.
+
+DatabaseSeeder.php dosyası içerisine run fonksiyonuna: ( $this->call(InfoSeeder::class); Seederın ismi ile ekleme yapılır.)
+
+Daha Sonrasında InfoSeeder dosyasına dönülür run fonksiyonuna:
+
+public function run(): void
+    {
+        DB::table('info')->insert([
+            'userid' => 1,
+            'job' => 'Php Developer',
+            'scholl' => 'SDÜ',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+    }
+    
+İlgili tablonun stunlarına eklenecek veriler yukarıdaki gibi girilir.
+
+Çalıştırmak için : php artisan db:seed komutu yazılır ve veriler tabloya girmiş olur.
+
+
+
