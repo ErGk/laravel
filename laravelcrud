@@ -1,0 +1,63 @@
+<?php
+// Veritabanı İçeriğin Sayısını bulma
+        $count = DB::table('users')->count('*');
+        echo 'Toplam Satır Sayısı: '.$count . '<br>';
+    // En Yüksek Sayıyı Bulur
+        $max = DB::table('users') -> max('age');
+        echo 'En Yüksek Değer: '. $max . '<br>';
+    // En Düşük Sayıyı Bulur
+        $min = DB::table('users')->min('age');
+        echo 'En Düşük Değer: ' . $min . '<br>';
+    // Ortalama Alır
+        $avg = DB::table('users')->avg('age');
+        echo 'Stun Ortalamaları: ' .$avg . '<br>';
+    // Tüm Stünları Toplar
+        $sum = DB::table('users')->sum('age');
+        echo 'Stunların Toplamı: ' . $sum . '<br>';
+    // Var Olup Olmadığını Denetler
+        $var = DB::table('users')->where('name','Eren')->exists();
+        echo 'Stun Var mı: ' . $var . '<br>';
+    // Veritabanına Veri Ekleme
+        $islem = 'sils';
+        if($islem == 'ekle')
+           DB::table('users')->insert([
+                'name' => 'Yılmaz',
+                'surname' => 'Yılar',
+                'age' => 42
+           ]);
+    // Veritabanı Veri Güncelleme
+        if($islem == 'guncelle')
+           DB::table('users')->where('name','Eren')->update([
+            'age' => 18
+           ]);
+    // Veritabanı Versi Silme
+        if($islem == 'sil')
+           DB::table('users')->where('id', 5)->delete();
+    // Olmayanları Getir
+        $varolamayan=  DB::table('users')->whereNotIn('id',[1,2])->get();
+        echo 'Olmayanları Getir: ' . $varolamayan . '<br>';
+    /*ORDER BY Kullanımı*/
+        $users = DB::table('users')->orderBy('id', 'desc')->get();
+        echo 'Order By Kullanımı: '.$users . '<br>';
+    /*ORDER BY Kullanımı*/
+        $users = DB::table('users')->inRandomOrder()->get();
+        echo 'Rastgele: '.$users . '<br>';
+    
+    /*Limt Kullanımı*/
+        $users = DB::table('users')->limit(2)->get();
+        echo 'Limit : '.$users . '<br>';
+    
+    /*Tüm Tabloyu BOŞALTIR 
+        $users = DB::table('users')->truncate()->get();
+    */
+
+    /*Tüm Tabloyu ÇEKER
+        $users = DB::table('users')->get();
+    */
+    // WHERE KULLANIMI
+        $users = DB::table('users')->where('name','merve')->where('surname', 'gedik')->get();
+
+    foreach ($users as $key => $value) {
+        echo $value -> name . ' ' . $value -> surname . '<br>';
+    }
+   ?>
