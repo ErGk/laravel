@@ -23,6 +23,6 @@ Hem migation'ları oluşturmak hemde seed'leri eklemek için:
 
 'php artisan migrate --seed'
 
-kullanımı yapılmalıdır.
+kullanımı terminalden yapılmalıdır.
 
 
