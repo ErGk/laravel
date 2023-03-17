@@ -21,7 +21,7 @@ public function run(): void
 
 Hem migation'ları oluşturmak hemde seed'leri eklemek için:
 
-'php artisan make migrate --seed'
+'php artisan migrate --seed'
 
 kullanımı yapılmalıdır.
 
