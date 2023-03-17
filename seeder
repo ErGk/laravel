@@ -19,5 +19,10 @@ public function run(): void
 
 Çalıştırmak için : php artisan db:seed komutu yazılır ve veriler tabloya girmiş olur.
 
+Hem migation'ları oluşturmak hemde seed'leri eklemek için:
+
+'php artisan make migrate --seed'
+
+kullanımı yapılmalıdır.
 
 
