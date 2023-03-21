@@ -1,0 +1,67 @@
+/*
+
+Controller Bölümü
+
+*/
+
+public function create(){
+        return view('kitap.create');
+    }
+
+    public function store(Request $request){
+
+        // Form Üzerinden Gelen Bütün Verileri Gösterir
+        dd($request-> all());
+
+        //Form Üzerinden Belirli Bir Veriyi Çekmek İçin
+
+        $isim = $request -> input('isim');
+        echo $isim;
+    }
+    
+    
+
+
+
+
+
+
+/*
+
+Route Bölümü
+
+*/
+
+Route::get('/kitap/ekle', [kitapController::class,'create']);
+Route::post('kitap/ekle', [kitapController::class,'store']) -> name('kitap.ekle.post');
+
+
+
+
+
+
+
+
+/* 
+
+HTML Bölümü
+
+*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{route('kitap.ekle.post')}}" method="POST">
+        {{ csrf_field() }}
+        Kitap İsmi: <br>
+        <input type="text" name='isim'>
+        <br>
+        <button>Ekle</button>
+    </form>
+</body>
+</html>
