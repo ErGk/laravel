@@ -1,0 +1,43 @@
+ //Elequent ORM Veri Listeleme
+    $x = Kitaplar::all(); // tümünü listeler
+    foreach ($x as $key => $value) {
+        echo $value['isim']. '<br>';
+    }
+    echo '------------<br>';
+    $x = Kitaplar::where('id',2)->get();
+    foreach ($x as $key => $value) {
+        echo $value['isim']. '<br>';
+    }
+    echo '------------<br>';
+    $y = Kitaplar::orderBy('isim', 'asc')->get();
+    foreach ($y as $key => $value) {
+        echo $value['isim']. '<br>';
+    }
+
+    //Elequent ORM Veri Ekleme
+
+    $kitap = new Kitaplar();
+    $kitap ->isim = 'Kombi Parçaları';
+    $kitap ->yazarid = 2;
+    $kitap -> save();
+    
+
+    //Elequent ORM Veri Güncelleme
+    $kitap = Kitaplar::where('id',1) -> update(['yazarid'=>41]);
+
+    //Elequent ORM Veri Silme
+    $kitap = Kitaplar::where('id',10)->delete();
+    
+    
+    
+    
+    
+    //hasOne Kullanımı (Veri listelemek için)
+    /*
+    MODEL KISMI
+    public function yazarim(){
+        return $this ->hasOne('App\Models\Yazarlar','id','yazarid');
+    }
+    */
+    $x = Kitaplar::find(41)-> yazarim ->il;
+    echo $x;
