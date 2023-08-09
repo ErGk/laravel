@@ -1,0 +1,6 @@
+DB:table('users')->insert(
+  [
+    'name' => 'Ahmet',
+    'surname' => 'Mehmet'
+  ]
+)
