@@ -1,0 +1,11 @@
+// Query Builder Çekim
+$users = DB::table('users')-> get();
+        foreach ($users as $key => $value) {
+            echo $value -> name;
+        }
+// first ilk veriyi getirir
+          $users = DB::table('users') -> first();
+          echo $users -> name;
+// where kullanımı
+          $users= DB::table('users')-> where('id', '=', 1) -> get();
+          dd($users)
