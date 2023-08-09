@@ -1,0 +1,5 @@
+DB::table('tablo_adi') -> where('id', '=', '3') -> update(
+            [
+                'age' => 28
+            ]
+            );
