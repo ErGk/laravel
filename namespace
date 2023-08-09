@@ -1,0 +1,17 @@
+//admin
+Route::group(['namespace'=>'admin', 'prefix' => 'admin'], function(){
+    Route::get('/',[AdminIndexController::class, 'index']);
+    Route::get('/servis-ekle',[AdminIndexController::class, 'servisekle']);
+
+    Route::group(['namespace' => 'kullanici', 'prefix' => 'kullanici'], function(){
+       Route::get('/', [KullanicilarIndexController::class, 'index']); 
+       Route::get('/ekle', [KullanicilarIndexController::class, 'kullaniciekle']); 
+    });
+});
+
+//front
+Route::group(['namespace' => '/'], function(){
+    Route::get('/', [FrontIndexController::class, 'index']);
+    Route::get('/blog',[FrontIndexController::class, 'blog']);
+    Route::get('/blog/{link?}',[FrontIndexController::class, 'bloglink']);
+});
