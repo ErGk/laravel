@@ -1,0 +1,1 @@
+DB::table('tablo_adi')->where('id', '=', 5)->delete();
