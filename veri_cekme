@@ -7,5 +7,13 @@ $users = DB::table('users')-> get();
           $users = DB::table('users') -> first();
           echo $users -> name;
 // where kullanımı
-          $users= DB::table('users')-> where('id', '=', 1) -> get();
+          $users= DB::table('users')
+                -> where('id', '=', 1) 
+                -> get();
+          dd($users)
+// orWhere kullanımı
+          $users= DB::table('users')
+                -> orWhere('id', '=', 1) 
+                -> orWhere('id', '=', 2)
+                -> get();
           dd($users)
